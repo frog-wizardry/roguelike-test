@@ -62,24 +62,18 @@ int main() {
         room_height = (rand() % 7) + 4;
         room_width = (rand() % 7) + 4;
 
-        printf("1. %d, %d\n", room_height, room_width);
-
         room_position.y = rand() % (win_row - room_height - 2) + 1;
         room_position.x = rand() % (win_col - room_width - 2) + 1;
 
         room_end_position.y = room_position.y + room_height;
         room_end_position.x = room_position.x + room_width;
 
-        printf("2. %d, %d - %d, %d\n", room_position.y, room_position.x, room_end_position.y, room_end_position.x);
-
         if(checkArea(room_position, room_end_position, '.') == 1) {
-            printf("passou!!\n");
             dungeon_rooms[i] = createRoom(room_position, room_height, room_width);
             drawRoom(dungeon_rooms[i]);
         }
 
         else {
-            printf("não passou...\n");
             i--;
         }
     }
